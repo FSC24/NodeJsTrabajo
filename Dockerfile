@@ -1,9 +1,10 @@
-# Dockerfile
 FROM node:20.18.0-alpine
 
 WORKDIR /app
-
 COPY package.json .
-COPY index.js .
+RUN npm install
 
+COPY . .
+
+EXPOSE ${PORT}
 CMD ["node", "index.js"]
